@@ -4,9 +4,7 @@ import ingredientes.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-
 import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -126,9 +124,9 @@ public class CardapioTest {
 
         try {
             cardapio.atualizarIngrediente(new Topping(TipoTopping.Mel), 19.0);
-            fail("Excecao nao encontrada");
+            fail("Exceção não encontrada");
         } catch (Throwable e) {
-            assertEquals("Ingrediente nao existe no cardapio.", e.getMessage());
+            assertEquals("Ingrediente não existe no cardápio.", e.getMessage());
             assertEquals(IllegalArgumentException.class, e.getClass());
         }
     }
@@ -143,7 +141,6 @@ public class CardapioTest {
         cardapio.adicionarIngrediente(base, 1.0);
         cardapio.adicionarIngrediente(fruta, 5.0);
         cardapio.adicionarIngrediente(topping, 10.0);
-
         cardapio.removerIngrediente(new Base(TipoBase.Iorgute));
 
         assertEquals(2, cardapio.getPrecos().size());
@@ -164,14 +161,13 @@ public class CardapioTest {
     @Test
     void test_remover_ingredientes_exception_ingredienteInexistente(){
         Base base = new Base(TipoBase.Iorgute);
-
         cardapio.adicionarIngrediente(base, 1.0);
 
         try {
             cardapio.removerIngrediente(new Topping(TipoTopping.Mel));
-            fail("Excecao nao encontrada");
+            fail("Exceção não encontrada");
         } catch (Throwable e) {
-            assertEquals("Ingrediente nao existe no cardapio.", e.getMessage());
+            assertEquals("Ingrediente não existe no cardápio.", e.getMessage());
             assertEquals(IllegalArgumentException.class, e.getClass());
         }
     }
@@ -179,25 +175,21 @@ public class CardapioTest {
     @Test
     void test_buscar_ingrediente_properly(){
         Base base = new Base(TipoBase.Iorgute);
-
         cardapio.adicionarIngrediente(base, 1.0);
-
         assertEquals(1.0, cardapio.buscarPreco(new Base(TipoBase.Iorgute)));
     }
 
     @Test
     void test_buscar_ingrediente_exception_ingredienteInexistente(){
         Base base = new Base(TipoBase.Iorgute);
-
         cardapio.adicionarIngrediente(base, 1.0);
 
         try {
             cardapio.buscarPreco(new Base(TipoBase.Sorvete));
-            fail("Excecao nao encontrada");
+            fail("Exceção não encontrada");
         } catch (Throwable e) {
-            assertEquals("Ingrediente nao existe no cardapio.", e.getMessage());
+            assertEquals("Ingrediente não existe no cardápio.", e.getMessage());
             assertEquals(IllegalArgumentException.class, e.getClass());
         }
     }
-
 }
