@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="w3" />
+        <module name="w4" />
+        <module name="totalshake" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="totalshake" target="17" />
+      <module name="w3" target="17" />
+      <module name="w4" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="totalshake" options="-parameters" />
+      <module name="w3" options="-parameters" />
+      <module name="w4" options="-parameters" />
+    </option>
+  </component>
+</project>
